@@ -1,7 +1,8 @@
-module.exports.run = function (client, msg, args) {
-    msg.reply("Pong");
-}
+module.exports.run = function(client, msg, args) {
+	msg.reply("Pong");
+};
 
 module.exports.meta = {
-    name: "ping"
-}
+	name: "ping",
+	description: "Checks if the bot is online"
+};

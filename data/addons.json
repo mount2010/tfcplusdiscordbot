@@ -1,0 +1,66 @@
+[
+    {
+        "name": "MerchantsTFC",
+        "author": "Aleksey_t",
+        "porter": "Mabrowning",
+        "desc": "Adds trading posts and player-made currency",
+        "url": "https://github.com/mabrowning/MerchantsTFC/releases"
+    },
+    {
+        "name": "TFC Wells",
+        "author": "Peffern",
+        "porter": "Mabrowning",
+        "desc": "Adds a well block for extracting water from the ground",
+        "url": "https://github.com/mabrowning/TFC-Wells/releases"
+    },
+    {
+        "name": "TFC Cellars",
+        "author": "Sladki",
+        "porter": "Mabrowning",
+        "desc": "Adds cellars to preserve food",
+        "url": "https://github.com/mabrowning/TFC-Cellars-Addon/releases"
+    },
+    {
+        "name": "TFC NEI Addon",
+        "author": "Dries007",
+        "porter": "Mabrowning",
+        "desc": "Not Enough Items support for Terrafirmacraft",
+        "url": "https://github.com/mabrowning/TFCraft-NEIplugin/releases",
+        "dependencies": "Not Enough Items, Code Chicken Core"
+    },
+    {
+        "name": "TFC Decorations",
+        "author": "Aleksey_t",
+        "porter": "Nuckable",
+        "desc": "Placable gems, mortar, and mud bricks, etc",
+        "url": "https://github.com/nuckable/DecorationsTFC/releases"
+    },
+    {
+        "name": "TerraMisc",
+        "author": "Necoxus",
+        "porter": "Nuckable",
+        "desc": "Long bows, cross bows, soy milk, and other misc additions",
+        "url": "https://github.com/nuckable/TerraMisc/releases"
+    },
+    {
+        "name": "Cooking with TFC",
+        "author": "StrayWolfie",
+        "porter": "Nuckable",
+        "desc": "Cooking overhauls for TFC",
+        "url": "https://github.com/nuckable/Cooking-with-TFC/releases"
+    },
+    {
+        "name": "TFC Tweaks", 
+        "author": "Dries007",
+        "porter": "Nuckable",
+        "desc": "Small bugfixes and tweaks such as OreDictionary fixes for TFC",
+        "url": "https://github.com/nuckable/TFC-Tweaks/releases"
+    },
+    {
+        "name": "TFC+ Udary",
+        "author": "Bletch1971",
+        "porter": "Bletch1971",
+        "desc": "Alloy Calculator, drying mats, and ore extraction from unused ore",
+        "url": "https://github.com/Bletch1971/TFCPlusUdaryMod/releases"
+    }
+]
