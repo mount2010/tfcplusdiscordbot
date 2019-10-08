@@ -1,4 +1,6 @@
 const assert = require("assert");
+const discord = require("discord.js");
+const config = require("../config/config.json");
 
 class SortByRow {
 	/**
@@ -20,7 +22,7 @@ class SortByRow {
 		});
 	}
 	/**
-	 * Return all combinations of objects for key with equal vals
+	 * Return all objects where the key is the same.
 	 * @param {string} key
 	 */
 	allRelatedRowsFor(key) {
@@ -40,6 +42,11 @@ class SortByRow {
 	}
 }
 
+function embed() {
+	return new discord.RichEmbed().setColor(config.universalColor);
+}
+
 module.exports = {
-	SortByRow
+	SortByRow,
+	embed
 };

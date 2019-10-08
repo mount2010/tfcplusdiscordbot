@@ -21,7 +21,7 @@ class Handler {
 		const args = message.content.split(" ");
 		const rawCommand = args.shift();
 		let command;
-		const commandRegex = new RegExp(`{}(.*)`.replace("{}", config.prefix));
+		const commandRegex = new RegExp(`^{}(.*)`.replace("{}", config.prefix));
 		const matches = commandRegex.exec(rawCommand);
 
 		if (message.author.bot) {
@@ -40,10 +40,10 @@ class Handler {
 			message.channel.send(
 				new discord.RichEmbed()
 					.setTitle("Command threw an error")
+					.setColor(0xff0000)
 					.setDescription(
 						"The command failed for some reason. Please try again. Report this if it keeps happening."
 					)
-					.setColor("red")
 			);
 			console.error(err);
 		}

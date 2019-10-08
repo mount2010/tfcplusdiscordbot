@@ -1,11 +1,13 @@
-const discord = require("discord.js");
+const utils = require("../util.js");
 
 module.exports.run = function(client, msg, args) {
 	const metas = client.handler.returnCommandMetas();
-	const embed = new discord.RichEmbed().setTitle("Help");
+	const embed = new utils.embed().setTitle("Help");
+	let help = "";
 	metas.forEach(el => {
-		embed.addField(el.name, el.description || "No description provided");
+		help += `\`${el.name}\` - ${el.description}\n`;
 	});
+	embed.setDescription(help);
 	msg.channel.send(embed);
 };
 
