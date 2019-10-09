@@ -1,4 +1,4 @@
-const utils = require("../util.js");
+const utils = require("../util");
 
 module.exports.run = function(client, msg, args) {
 	const metas = client.handler.returnCommandMetas();

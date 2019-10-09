@@ -42,11 +42,34 @@ class SortByRow {
 	}
 }
 
-function embed() {
-	return new discord.RichEmbed().setColor(config.universalColor);
+function embed(status) {
+	return new discord.RichEmbed().setColor(config.colors[status]);
+}
+
+function color(color, bright) {
+	const colors = {
+		black: "30",
+		red: "31",
+		green: "32",
+		brown: "33",
+		blue: "34",
+		purple: "35",
+		cyan: "36",
+		gray: "37"
+	};
+	if (color === "reset") {
+		return "\x1b[0m";
+	}
+	if (!colors[color]) {
+		throw new Error(`Color ${color} does not exist.`);
+	}
+
+	bright = bright ? "1" : "0";
+	return `\x1b[${bright};${colors[color]}m`;
 }
 
 module.exports = {
 	SortByRow,
-	embed
+	embed,
+	color
 };

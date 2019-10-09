@@ -40,14 +40,16 @@
         "author": "Necoxus",
         "porter": "Nuckable",
         "desc": "Long bows, cross bows, soy milk, and other misc additions",
-        "url": "https://github.com/nuckable/TerraMisc/releases"
+        "url": "https://github.com/nuckable/TerraMisc/releases",
+        "dependencies": "WAILA"
     },
     {
         "name": "Cooking with TFC",
         "author": "StrayWolfie",
         "porter": "Nuckable",
         "desc": "Cooking overhauls for TFC",
-        "url": "https://github.com/nuckable/Cooking-with-TFC/releases"
+        "url": "https://github.com/nuckable/Cooking-with-TFC/releases",
+        "dependencies": "TerraMisc"
     },
     {
         "name": "TFC Tweaks", 
@@ -62,5 +64,43 @@
         "porter": "Bletch1971",
         "desc": "Alloy Calculator, drying mats, and ore extraction from unused ore",
         "url": "https://github.com/Bletch1971/TFCPlusUdaryMod/releases"
+    },
+    {
+        "name": "Upscaled TFC Resource Packs",
+        "author": "Nuckable",
+        "porter": "Nuckable",
+        "desc": "TFC Resource Packs upscaled via the xBRZ algroithim",
+        "url": "https://github.com/nuckable/Upscaled-TFC-Resource-Packs",
+        "type": "resource pack"
+    },
+    {
+        "name": "Alternate Tools",
+        "author": "Yeahminecraft16",
+        "porter": "Yeahminecraft16",
+        "desc": "Alternate tool item images and textures",
+        "url": "https://drive.google.com/file/d/1qU0H-w2MGlzUE4-ilopW4t3we2I_oRSF/view?usp=sharing",
+        "type": "resource pack"
+    },
+    {
+        "name": "Journeymap Colorpalette",
+        "author": "Autreymg",
+        "porter": "Autreymg",
+        "desc": "Journeymap Colorpalette (fixes terrain colors)",
+        "url": "https://discordapp.com/channels/426337465691799562/426341031127285761/625515766971891713",
+        "type": "other"
+    },
+    {
+        "name": "Farseek",
+        "author": "delvr",
+        "porter": "Mabrowning",
+        "desc": "Scala API for Minecraft mods",
+        "url": "https://github.com/tfc-plus-addons/Farseek/releases"
+    },
+    {
+        "name": "Streams",
+        "author": "delvr",
+        "porter": "Mabrowning",
+        "desc": "Flowing rivers in Minecraft",
+        "url": "https://github.com/tfc-plus-addons/Streams/releases"
     }
 ]

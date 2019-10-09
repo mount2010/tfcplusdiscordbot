@@ -1,6 +1,7 @@
 const fs = require("fs");
 const discord = require("discord.js");
 const config = require("../config/config.json");
+const util = require("./util");
 
 class Handler {
 	constructor(client) {
@@ -13,7 +14,10 @@ class Handler {
 			const command = require(`${folder}/${el}`);
 			this.commandStore.set(command.meta.name, command);
 			console.log(
-				`\x1b[32mLoaded command \x1b[32;1m${command.meta.name}.\x1b[0m`
+				`${util.color("green")}Loaded command ${util.color(
+					"green",
+					true
+				)}${command.meta.name}${util.color("reset")}`
 			);
 		});
 	}
@@ -36,11 +40,16 @@ class Handler {
 
 		try {
 			this.commandStore.get(command).run(this.client, message, args);
+			console.log(
+				`${new Date().toUTCString()} - ${message.author.username} (${
+					message.author.id
+				}) executed ${message.content}`
+			);
 		} catch (err) {
 			message.channel.send(
 				new discord.RichEmbed()
 					.setTitle("Command threw an error")
-					.setColor(0xff0000)
+					.setColor(config.colors.error)
 					.setDescription(
 						"The command failed for some reason. Please try again. Report this if it keeps happening."
 					)

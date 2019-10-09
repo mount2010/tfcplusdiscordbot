@@ -6,6 +6,7 @@ class Client extends discord.Client {
 	constructor() {
 		super({});
 		this.handler = new Handler(this);
+		this.prefix = config.prefix;
 	}
 	loadCommands(folder) {
 		this.handler.loadCommands(folder);
@@ -17,7 +18,7 @@ class Client extends discord.Client {
 	}
 	onReady() {
 		console.log(`Logged in as ${this.user.username}.`);
-		this.user.setActivity(`Terrafirmacraft+ | ${config.prefix}help`, {
+		this.user.setActivity(`Terrafirmacraft+ | ${this.prefix}help`, {
 			type: "PLAYING"
 		});
 	}

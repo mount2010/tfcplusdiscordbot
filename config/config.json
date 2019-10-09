@@ -1,4 +1,8 @@
 {
     "prefix": "!",
-    "universalColor": "#21C088"
+    "colors": {
+        "success": "#21C088",
+        "error": "#A00027",
+        "wait": "#FCFC09"
+    }
 }
