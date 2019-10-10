@@ -71,7 +71,7 @@
         "porter": "Nuckable",
         "desc": "TFC Resource Packs upscaled via the xBRZ algroithim",
         "url": "https://github.com/nuckable/Upscaled-TFC-Resource-Packs",
-        "type": "resource pack"
+        "type": "Resource Pack"
     },
     {
         "name": "Alternate Tools",
@@ -79,7 +79,7 @@
         "porter": "Yeahminecraft16",
         "desc": "Alternate tool item images and textures",
         "url": "https://drive.google.com/file/d/1qU0H-w2MGlzUE4-ilopW4t3we2I_oRSF/view?usp=sharing",
-        "type": "resource pack"
+        "type": "Resource Pack"
     },
     {
         "name": "Journeymap Colorpalette",
@@ -87,7 +87,7 @@
         "porter": "Autreymg",
         "desc": "Journeymap Colorpalette (fixes terrain colors)",
         "url": "https://discordapp.com/channels/426337465691799562/426341031127285761/625515766971891713",
-        "type": "other"
+        "type": "Other"
     },
     {
         "name": "Farseek",

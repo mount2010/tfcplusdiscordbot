@@ -64,7 +64,7 @@ function details(client, msg, args) {
 	if (match.deprecated) {
 		embed.addField("Deprecated", match.deprecated);
 	}
-	embed.addField("Type", match.type ? match.type : "Addon/Other");
+	embed.addField("Type", match.type ? match.type : "Addon");
 	msg.channel.send(embed);
 }
 
@@ -84,7 +84,7 @@ function list(client, msg, args) {
 			el.vals
 				.map(i => {
 					const type =
-						i.type === "resource pack"
+						i.type === "Resource Pack"
 							? resourcePackIcon
 							: addonIcon;
 					const deprecated = i.deprecated ? deprecatedIcon : "";
