@@ -1,4 +1,5 @@
 const addons = require("../../data/addons.json");
+const recommends = require("../../data/recommends.json");
 const utils = require("../util");
 const levenshtein = require("fast-levenshtein");
 const { Collection } = require("discord.js");
@@ -13,6 +14,7 @@ const addonIcon = ":heavy_plus_sign:";
 
 function details(client, msg, args) {
 	let collection = new Collection(addons.map(el => [el.name, el]));
+	recommends.forEach(el=>{collection.set(el.name, el)});
 
 	const query = args
 		.join(" ")
@@ -55,7 +57,7 @@ function details(client, msg, args) {
 	embed.setDescription(match.desc);
 	embed.addField("Original Author", match.author);
 	embed.setURL(match.url);
-	if (match.author !== match.porter) {
+	if (match.porter && match.author !== match.porter) {
 		embed.addField("Porter", match.porter);
 	}
 	if (match.dependencies) {
@@ -78,26 +80,42 @@ function list(client, msg, args) {
 			"\n" +
 			`Legend: ${resourcePackIcon} Resource Pack | ${addonIcon} Addon | ${deprecatedIcon} Deprecated | ${dependenciesIcon} Has Dependencies`
 	);
+
+	function addonIcons (obj) {
+		const type =
+			obj.type === "Resource Pack"
+				? resourcePackIcon
+				: addonIcon;
+		const deprecated = obj.deprecated ? deprecatedIcon : "";
+		const dependencies = obj.dependencies ? dependenciesIcon : "";
+		return {type, deprecated, dependencies}
+	}
+
 	const fields = porters.map(el => {
 		return [
 			`${el.similar}:`,
 			el.vals
 				.map(i => {
-					const type =
-						i.type === "Resource Pack"
-							? resourcePackIcon
-							: addonIcon;
-					const deprecated = i.deprecated ? deprecatedIcon : "";
-					const dependencies = i.dependencies ? dependenciesIcon : "";
+					const icons = addonIcons(i);
 
-					return `[${i.name}](${i.url}) ${type} ${deprecated} ${dependencies}`;
+					return `[${i.name}](${i.url}) ${icons.type} ${icons.deprecated} ${icons.dependencies}`;
 				})
 				.join("\n"),
 			true
 		];
 	});
+	const recommendsField = [
+		'Recommended:',
+		recommends.map(i=>{
+			const icons = addonIcons(i);
+
+			return `[${i.name}](${i.url}) ${icons.type} ${icons.deprecated} ${icons.dependencies}`;
+		}),
+		true
+	]
 
 	fields.forEach(el => embed.addField(...el));
+	embed.addField(...recommendsField);
 	msg.channel.send(embed);
 }
 

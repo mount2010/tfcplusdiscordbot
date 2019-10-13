@@ -1,2 +1,3 @@
 config/secrets.json
 node_modules
+src/db.js
