@@ -30,5 +30,12 @@
         "desc": "Fixes client-server desync with boats",
         "url": "https://www.curseforge.com/minecraft/mc-mods/better-boat",
         "dependencies": "Bookshelf API"
+    },
+    {
+        "name": "NotEnoughItems",
+        "author": "Chicken_Bones",
+        "desc": "Recipes viewer and item manager | Also see the TFC-NEI Plugin for TFC specific recipes",
+        "url": "https://www.curseforge.com/minecraft/mc-mods/notenoughitems",
+        "dependencies": "CodeChickenCore"
     }
 ]

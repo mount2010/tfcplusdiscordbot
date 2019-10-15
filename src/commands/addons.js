@@ -1,3 +1,4 @@
+// Todo: refactor and split this file into functions
 const addons = require("../../data/addons.json");
 const recommends = require("../../data/recommends.json");
 const utils = require("../util");
@@ -13,8 +14,11 @@ const dependenciesIcon = ":gear:";
 const addonIcon = ":heavy_plus_sign:";
 
 function details(client, msg, args) {
+	const sortByRow = new utils.SortByRow(addons);
 	let collection = new Collection(addons.map(el => [el.name, el]));
-	recommends.forEach(el=>{collection.set(el.name, el)});
+	recommends.forEach(el => {
+		collection.set(el.name, el);
+	});
 
 	const query = args
 		.join(" ")
@@ -30,15 +34,29 @@ function details(client, msg, args) {
 		return distance <= maxDistance;
 	});
 	if (collection.size < 1) {
-		msg.channel.send(
-			utils
-				.embed("error")
-				.setTitle("No addon found")
-				.setDescription(
-					`Couldn't find an addon with that name. Use ${client.prefix}addons to see a list of all addons.`
-				)
-		);
-		return;
+		// No addon found, try porter:
+		const porter = sortByRow.getRelatedRows("porter", args[0], true);
+		if (porter.length < 1) {
+			msg.channel.send(
+				utils
+					.embed("error")
+					.setTitle("No addon found")
+					.setDescription(
+						`Couldn't find an addon with that name. Use ${client.prefix}addons to see a list of all addons.`
+					)
+			);
+			return;
+		} else {
+			const embed = utils
+				.embed("success")
+				.setTitle("Porter listing")
+				.setDescription(`Ports/addons by ${query}`);
+			porter.forEach(el => {
+				embed.addField(el.name, `[Link](${el.url}) - ${el.desc}`);
+			});
+			msg.channel.send(embed);
+			return;
+		}
 	}
 	if (collection.size > 1) {
 		msg.channel.send(
@@ -81,14 +99,12 @@ function list(client, msg, args) {
 			`Legend: ${resourcePackIcon} Resource Pack | ${addonIcon} Addon | ${deprecatedIcon} Deprecated | ${dependenciesIcon} Has Dependencies`
 	);
 
-	function addonIcons (obj) {
+	function addonIcons(obj) {
 		const type =
-			obj.type === "Resource Pack"
-				? resourcePackIcon
-				: addonIcon;
+			obj.type === "Resource Pack" ? resourcePackIcon : addonIcon;
 		const deprecated = obj.deprecated ? deprecatedIcon : "";
 		const dependencies = obj.dependencies ? dependenciesIcon : "";
-		return {type, deprecated, dependencies}
+		return { type, deprecated, dependencies };
 	}
 
 	const fields = porters.map(el => {
@@ -105,14 +121,14 @@ function list(client, msg, args) {
 		];
 	});
 	const recommendsField = [
-		'Recommended:',
-		recommends.map(i=>{
+		"Recommended:",
+		recommends.map(i => {
 			const icons = addonIcons(i);
 
 			return `[${i.name}](${i.url}) ${icons.type} ${icons.deprecated} ${icons.dependencies}`;
 		}),
 		true
-	]
+	];
 
 	fields.forEach(el => embed.addField(...el));
 	embed.addField(...recommendsField);

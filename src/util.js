@@ -15,10 +15,13 @@ class SortByRow {
 	 * Return all objs where key == key and val == val
 	 * @param {string} key
 	 * @param {string} val
+	 * @param {boolean} caseSensitive
 	 */
-	getRelatedRows(key, val) {
+	getRelatedRows(key, val, caseSensitive) {
 		return this.objs.filter(el => {
-			return el[key] === val;
+			return caseSensitive
+				? el[key].toLowerCase() === val.toLowerCase()
+				: el[key] === val;
 		});
 	}
 	/**
