@@ -102,5 +102,12 @@
         "porter": "Mabrowning",
         "desc": "Flowing rivers in Minecraft",
         "url": "https://github.com/tfc-plus-addons/Streams/releases"
+    },
+    {
+        "name": "Leather Water Sac",
+        "author": "Emris",
+        "porter": "Mabrowning",
+        "desc": "Adds a leather sac that can hold 12 uses of water",
+        "url": "https://github.com/tfc-plus-addons/LeatherWaterSac/releases"
     }
 ]
