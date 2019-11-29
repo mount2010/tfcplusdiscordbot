@@ -5,5 +5,6 @@ const Client = require("./client");
 const secrets = require("../config/secrets.json");
 
 const client = new Client();
+client.on("error", console.error);
 client.loadCommands(path.join(__dirname, "commands"));
 client.start(secrets);

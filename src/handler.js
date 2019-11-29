@@ -1,7 +1,6 @@
 const fs = require("fs");
 const discord = require("discord.js");
 const config = require("../config/config.json");
-const util = require("./util");
 
 class Handler {
 	constructor(client) {
@@ -13,12 +12,7 @@ class Handler {
 		files.forEach(el => {
 			const command = require(`${folder}/${el}`);
 			this.commandStore.set(command.meta.name, command);
-			console.log(
-				`${util.color("green")}Loaded command ${util.color(
-					"green",
-					true
-				)}${command.meta.name}${util.color("reset")}`
-			);
+			console.log(`Loaded command ${command.meta.name}`);
 		});
 	}
 	handleMessage(message) {

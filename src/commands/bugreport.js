@@ -1,4 +1,7 @@
-module.exports.run = function(client, msg, args) {};
+module.exports.run = function(client, msg, args) {
+	
+
+};
 
 module.exports.meta = {
 	name: "bugreport",
