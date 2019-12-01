@@ -64,7 +64,7 @@
         "porter": "Bletch1971",
         "desc": "Alloy Calculator, drying mats, and ore extraction from unused ore",
         "url": "https://github.com/Bletch1971/TFCPlusUdaryMod",
-        "deprecated": true
+        "deprecated": "Doesn't support new ore IDs"
     },
     {
         "name": "Upscaled TFC Resource Packs",
