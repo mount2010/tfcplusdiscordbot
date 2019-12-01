@@ -1,8 +1,23 @@
 {
-    "prefix": "!",
+    "prefix": "!!",
     "colors": {
         "success": "#21C088",
         "error": "#A00027",
         "wait": "#FCFC09"
+    },
+    "icons": {
+        "resourcePack": ":frame_photo:",
+        "deprecated": ":boom:",
+        "dependencies": ":gear:",
+        "addon": ":heavy_plus_sign:"
+    },
+    "addons": {
+        "maxTypos": 3
+    },
+    "db": {
+        "host": "",
+        "max": 0,
+        "idleTimeoutMillis": 0,
+        "connectionTimeoutMillis": 0
     }
 }
