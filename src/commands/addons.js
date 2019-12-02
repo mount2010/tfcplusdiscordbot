@@ -5,29 +5,27 @@ const Addon = require("../classes/addon");
 const utils = require("../util");
 
 const config = require("../../config/config.json");
-const addons = require("../../data/addons.json").map(el=>{return new Addon(el)});
-const recommends = require("../../data/recommends.json").map(el=>{return new Addon(el)});
+const addons = require("../../data/addons.json").map(el => {
+	return new Addon(el);
+});
+const recommends = require("../../data/recommends.json").map(el => {
+	return new Addon(el);
+});
 
-const sortByRow = new utils.SortByRow(addons);
-const porters = sortByRow.allRelatedRowsFor("porter");
+const porters = utils.allRelatedRows("porter");
 let collection = new Collection(addons.map(el => [el.name, el]));
 
-const recommendedList = [
-	"Recommended",
-	recommends.map(i=>i.field()).join('\n'),
-	true
-];
-const addonsList = porters.map(el=>{
-	return [
-		el.similar,
-		el.vals.map(i=>i.field()).join('\n'),
-		true
-	];
-})
-addonsList.push(recommendedList);
+const addonsList = porters
+	.push({ similar: "Recommended", vals: recommends })
+	.map(el => {
+		return {
+			title: el.similar,
+			desc: el.vals.map(i => i.field()).join("\n"),
+			inline: true
+		};
+	});
 
 function details(client, msg, args) {
-	const sortByRow = new utils.SortByRow(addons);
 	recommends.forEach(el => {
 		collection.set(el.name, el);
 	});
@@ -38,7 +36,7 @@ function details(client, msg, args) {
 		.trim();
 	let match;
 
-	if (collection.map(el => el.name).indexOf(query) != -1)
+	if (collection.find(el => el.name === query) === undefined)
 		match = collection.get(query);
 	// Only use values that match the first word of the msg. Uses levenshtein to account for typos
 	collection = collection.filter(el => {
@@ -55,8 +53,7 @@ function details(client, msg, args) {
 				)
 		);
 		return;
-	}
-	else if (collection.size > 1) {
+	} else if (collection.size > 1) {
 		msg.channel.send(
 			utils
 				.embed("error")
@@ -75,14 +72,13 @@ function list(client, msg, args) {
 	const embed = utils.embed("success").setTitle("TFC+ Addons");
 	embed.setDescription(
 		"**For details, supply an addon name as an argument.**\n" +
-		`Legend: ${config.icons.resourcePack} Resource Pack | ${config.icons.addon} Addon 
+			`Legend: ${config.icons.resourcePack} Resource Pack | ${config.icons.addon} Addon 
 		| ${config.icons.deprecated} Deprecated | ${config.icons.dependencies} Has Dependencies (use ${config.prefix}addons <name>)`
 	);
 
-	addonsList.forEach(el => embed.addField(...el));
+	addonsList.forEach(el => embed.addField(el.title, el.desc, el.inline));
 	msg.channel.send(embed);
 }
-
 
 module.exports.run = function(client, msg, args) {
 	if (args.length >= 1) {

@@ -2,7 +2,7 @@ const config = require("../../config/config.json");
 const utils = require("../util");
 
 class Addon {
-	constructor (data) {
+	constructor(data) {
 		this.name = data.name;
 		this.desc = data.desc;
 		this.url = data.url;
@@ -12,7 +12,7 @@ class Addon {
 		this.deprecated = data.deprecated;
 		this.type = data.type ? data.type : "Addon";
 	}
-	details () {
+	details() {
 		const embed = utils.embed("success");
 		embed.setTitle(this.name);
 		embed.setDescription(this.desc);
@@ -30,14 +30,15 @@ class Addon {
 		embed.addField("Type", this.type ? this.type : "Addon");
 		return embed;
 	}
-	icons () {
+	icons() {
 		const icons = config.icons;
-		const type = this.type === "Resource Pack" ? icons.resourcePack : icons.addon;
+		const type =
+			this.type === "Resource Pack" ? icons.resourcePack : icons.addon;
 		const deprecated = this.deprecated ? icons.deprecated : "";
 		const dependencies = this.dependencies ? icons.dependencies : "";
 		return { type, deprecated, dependencies };
 	}
-	field () {
+	field() {
 		const icons = this.icons();
 		return `[${this.name}](${this.url}) ${icons.type} ${icons.deprecated} ${icons.dependencies}`;
 	}
