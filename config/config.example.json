@@ -13,11 +13,5 @@
     },
     "addons": {
         "maxTypos": 3
-    },
-    "db": {
-        "host": "",
-        "max": 0,
-        "idleTimeoutMillis": 0,
-        "connectionTimeoutMillis": 0
     }
 }
