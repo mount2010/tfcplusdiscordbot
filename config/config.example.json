@@ -12,6 +12,6 @@
         "addon": ":heavy_plus_sign:"
     },
     "addons": {
-        "maxTypos": 3
+        "maxTypos": 1
     }
 }

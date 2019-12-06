@@ -12,12 +12,11 @@ const recommends = require("../../data/recommends.json").map(el => {
 	return new Addon(el);
 });
 
-const porters = utils.allRelatedRows("porter");
+const porters = utils.allRelatedRows(addons, "porter");
 let collection = new Collection(addons.map(el => [el.name, el]));
 
-const addonsList = porters
-	.push({ similar: "Recommended", vals: recommends })
-	.map(el => {
+porters.push({ similar: "Recommended", vals: recommends })
+const addonsList = porters.map(el => {
 		return {
 			title: el.similar,
 			desc: el.vals.map(i => i.field()).join("\n"),
@@ -43,6 +42,8 @@ function details(client, msg, args) {
 		const distance = levenshtein.get(el.name.toLowerCase(), query);
 		return distance <= config.addons.maxTypos;
 	});
+
+	console.log(collection);
 	if (!collection.size) {
 		msg.channel.send(
 			utils
