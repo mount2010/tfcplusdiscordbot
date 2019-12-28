@@ -1,0 +1,21 @@
+{
+    "bot": {
+        "prefix": "!!",
+        "commandDir": "commands"
+    },
+    "embeds": {
+        "error": {
+            "title": "Oh no!",
+            "description": "Something went wrong with the command. Please notify Mount2010. The command might not work for now.",
+            "color": "{{red}}"
+        }
+    },
+    "view": {
+        "colors": {
+            "primary": "",
+            "green": "0x00ff00",
+            "yellow": "0xffff00",
+            "red": "0xff0000"
+        }
+    }
+}
