@@ -12,9 +12,9 @@
     "sequelize": "^5.21.3"
   },
   "scripts": {
-    "build": "npx babel src/** --out-dir out --delete-dir-on-start && npx babel commands/** --out-dir commands/out --delete-dir-on-start && mv commands/out out/commands",
+    "build": "./scripts/build.sh",
     "start": "node out/app.js",
-    "test": "jest"
+    "test": "./scripts/test.sh"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.7",
