@@ -1,15 +1,17 @@
 import discord from "discord.js";
 import config from "config";
 import handle from "./handler.js";
+import load from "./store.js";
 
 const client = new discord.Client();
+const store = load(new Map());
 
 function onReady () {
     console.log(`Ready as ${client.user.username}.`);
 }
 
 function onMessage (message) {
-    handle(message);
+    handle(message, store);
 }
 
 client.login(config.get("bot.token"));

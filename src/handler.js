@@ -1,6 +1,6 @@
 import config from "config";
-import "mustache";
-import "./view.js";
+import util from "./util.js";
+import view from "./view.js";
 
 function check (content) {
     const prefix = config.get("bot.prefix");
@@ -26,13 +26,13 @@ function handle (message, store) {
     if (!check(message.content)) return false;
     const [command, args] = parse(message.content);
     if (store.has(command)) {
-        const execute = require(store.get(command)).execute;
+        const execute = require(store.get(command)).default.execute;
         try {
             execute(message, args);
         }
         catch (error) {
-            const embed = Mustache.render(config.get("embeds.error"), {...view});
-            message.channel.send({embed: embed});
+            message.channel.send({embed: util.getEmbed("embeds.error")});
+            console.error(error);
         }
     }
 }

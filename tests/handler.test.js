@@ -1,4 +1,4 @@
-const handler = require("../src/handler");
+const handler = require("../out/handler");
 const config = require("config");
 
 test("checks content for prefix correctly", () => {

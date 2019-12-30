@@ -1,5 +1,7 @@
+import util from "../util";
+
 function ping (message) {
-    message.channel.send("Pong!");
+    message.channel.send({embed: util.getEmbed("embeds.ping")});
 }
 
 const meta = {

@@ -8,11 +8,16 @@
             "title": "Oh no!",
             "description": "Something went wrong with the command. Please notify Mount2010. The command might not work for now.",
             "color": "{{red}}"
+        },
+        "ping": {
+            "title": "Pong!",
+            "description": "Ping pong!",
+            "color": "{{primary}}"
         }
     },
     "view": {
         "colors": {
-            "primary": "",
+            "primary": "0xffffff",
             "green": "0x00ff00",
             "yellow": "0xffff00",
             "red": "0xff0000"

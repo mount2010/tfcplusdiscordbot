@@ -1,4 +1,4 @@
-const store = require("../src/store");
+const store = require("../out/store");
 const fs = require("fs");
 const config = require("config");
 
