@@ -1,5 +1,7 @@
 # TFC+ Discord Bot
 
+This is a bot for the TFC+ discord server. It is currently incomplete. In this iteration, I intended to learn some more JS, as well as principles of clean code. I was adviced to look into Pure Functions, and I realized that it was a good way to write clean code. Clean code makes me happier to work on the bot, and therefore speeds up development.
+
 ## Install
 
 ### Development
