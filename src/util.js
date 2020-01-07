@@ -19,6 +19,14 @@ function multiTemplate(obj, view) {
 }
 
 /**
+ * Utility function for getEmbed that uses another embed as a base.
+ */
+function inheritEmbed (parent, child) {
+    delete child.inherits; // Never knew I'd come to use delete, but here we are
+    return config.util.extendDeep(parent, child);
+}
+
+/**
  * Fetches an embed from the configuration, parses it all with Mustache. 
  * @param {String} configKey 
  * @param {Object} [view=defaultView]  
@@ -31,10 +39,27 @@ function getEmbed (configKey, view, concat=true) {
     if (!view) {
         view = defaultView;
     }
-    return multiTemplate(config.get(configKey), view);
+    // Have to assign to new object because Node-Config returns an object that is not extensible. 
+    // This prevents inherit from working.
+    let embed = Object.assign({}, config.get(configKey));
+    if (embed.inherits) {
+        const parent = Object.assign({}, config.get(embed.inherits));
+        embed = inheritEmbed(parent, embed);
+    }
+    return multiTemplate(embed, view);
+}
+
+function runSubCommands (subCommands, text) {
+    if (!text || text.length <= 0) {
+        subCommands.default();
+    }
+    else if (text.toLowerCase() in subCommands) {
+        subCommands[text]();
+    }
 }
 
 export default {
     multiTemplate,
-    getEmbed
+    getEmbed,
+    runSubCommands
 };

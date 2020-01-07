@@ -26,7 +26,7 @@ function handle (message, store) {
     if (!check(message.content)) return false;
     const [command, args] = parse(message.content);
     if (store.has(command)) {
-        const execute = require(store.get(command)).default.execute;
+        const execute = store.get(command);
         try {
             execute(message, args);
         }

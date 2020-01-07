@@ -1,7 +1,7 @@
 {
-  "name": "tfcbot3",
+  "name": "tfcplusdiscordbot",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "out/app.js",
   "license": "MIT",
   "dependencies": {
     "config": "^3.2.4",
@@ -13,8 +13,7 @@
   },
   "scripts": {
     "build": "./scripts/build.sh",
-    "start": "node out/app.js",
-    "test": "./scripts/test.sh"
+    "start": "node out/app.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.7",

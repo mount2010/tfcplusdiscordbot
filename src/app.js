@@ -1,7 +1,7 @@
 import discord from "discord.js";
 import config from "config";
-import handle from "./handler.js";
-import load from "./store.js";
+import handle from "./handler";
+import load from "./store";
 
 const client = new discord.Client();
 const store = load(new Map());

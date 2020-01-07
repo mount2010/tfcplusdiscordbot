@@ -2,7 +2,11 @@
     "db": {
         "host": "localhost",
         "username": "postgres",
-        "password": ""
+        "password": "",
+        "database": "",
+        "pool": {
+            "max": 10
+        }
     },
     "bot": {
         "token": ""

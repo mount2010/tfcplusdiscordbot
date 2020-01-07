@@ -5,7 +5,7 @@ This is a bot for the TFC+ discord server. It is currently incomplete. In this i
 ## Install
 
 ### Development
-Node 10 or above is recommended. You will need the Yarn package manager.
+Node 10 or above is recommended. You will need the Yarn package manager, and PostgresDB.
 Run 
 
 `yarn install`
@@ -13,6 +13,8 @@ Run
 `yarn build`
 
 This will compile files in /src to the out directory, which can be used in production.
+
+Copy config/local.example.json to config/local.json. Edit this with the values of your database and your bot token.
 
 The compilation is actually two-fold, due to limitations of Babel. With the advice of another engineer, I decided to go against using Gulp to automate this. Instead, all this is done within the `build` script. First, the /src directory is compiled. Then, the /commands directory is compiled, and the output from the commands copied into the /out folder. The /out folder can now be used to run the bot. 
 

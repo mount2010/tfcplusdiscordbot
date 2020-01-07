@@ -5,7 +5,7 @@
     },
     "embeds": {
         "error": {
-            "title": "Oh no!",
+            "title": ":x: Oh no!",
             "description": "Something went wrong with the command. Please notify Mount2010. The command might not work for now.",
             "color": "{{red}}"
         },
@@ -13,6 +13,21 @@
             "title": "Pong!",
             "description": "Ping pong!",
             "color": "{{primary}}"
+        },
+        "success": {
+            "title": ":ok_hand: Success!", 
+            "description": "All done!",
+            "color": "{{green}}"
+        },
+        "suggest": {
+            "error": {
+                "inherits": "embeds.error",
+                "description": "Something went wrong while sending your suggestion. Please notify Mount2010."
+            },
+            "success": {
+                "inherits": "embeds.success",
+                "description": "If you want to edit your suggestion, please do !!suggestion."
+            }
         }
     },
     "view": {
