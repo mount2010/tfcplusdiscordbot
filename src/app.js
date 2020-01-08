@@ -6,7 +6,7 @@ import load from "./store";
 const client = new discord.Client();
 const store = load(new Map());
 
-function onReady () {
+async function onReady () {
     console.log(`Ready as ${client.user.username}.`);
 }
 

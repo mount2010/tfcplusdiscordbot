@@ -5,7 +5,7 @@ import util from "../util";
 async function execute (message, args) {
     const userId = message.author.id;
     const user = await User.findOrCreate({where: {userId}});
-    const isAdmin = user.admin;
+    const isAdmin = user[0].admin;
     util.runSubCommands({
         default: function () {
             const adminIndex = `

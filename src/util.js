@@ -50,7 +50,6 @@ function getEmbed (configKey, view, concat=true) {
 }
 
 function requireArgs (args, number) {
-    console.log(args.length);
     return args.length <= number;
 }
 

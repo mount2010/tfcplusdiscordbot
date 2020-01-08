@@ -6,7 +6,8 @@ const sequelize = new Sequelize(
     {
         host: config.get("db.host"),
         dialect: "postgres",
-        pool: config.get("db.pool")
+        pool: config.get("db.pool"),
+        logging: config.get("db.logging")
     }
 );
 

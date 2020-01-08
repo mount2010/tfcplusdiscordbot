@@ -19,9 +19,9 @@ function parse (content) {
 
 async function checkPermission (userId, meta) {
     const user = await User.findOrCreate({where: {userId}});
-    if (meta.permission === "admin" && !user.admin) return false;
+    if (meta.permission === "admin" && !user[0].admin) return false;
     else return true; 
-}   
+}
 
 /**
  * @param {discord.Message} message 

@@ -14,8 +14,7 @@ function execute (message, args) {
         },
         setAdmin: async function () {
             let user = await User.findOrCreate({where: {userId: args[1]}});
-            user = await user.update({where: {admin: true}});
-            console.log(user);
+            console.log(user.get());
             message.channel.send(util.getEmbed("embeds.user.makeAdminSuccess", {user: args[1]}));
         }
     }, args[0]);
@@ -23,7 +22,8 @@ function execute (message, args) {
 
 const meta = {
     name: "user",
-    execute
+    execute,
+    permission: "admin"
 }
 
 export default meta;
