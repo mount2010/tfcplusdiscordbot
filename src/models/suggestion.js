@@ -6,10 +6,6 @@ const Suggestion = sequelize.define("suggestion", {
         type: Sequelize.STRING,
         allowNull: false
     },
-    userAvatar: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
     modified: {
         type: Sequelize.STRING, // Could use Sequelize.DATE, but keep it simple, stupid, so let's use discord.js' format
         allowNull: false

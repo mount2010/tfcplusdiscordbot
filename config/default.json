@@ -9,6 +9,11 @@
             "description": "Something went wrong with the command. Please notify Mount2010. The command might not work for now.",
             "color": "{{red}}"
         },
+        "notEnoughArguments": {
+            "title": ":information_source: Not enough arguments",
+            "description": "Usage: {{{usage}}}",
+            "color": "{{primary}}"
+        },
         "ping": {
             "title": "Pong!",
             "description": "Ping pong!",
@@ -19,6 +24,15 @@
             "description": "All done!",
             "color": "{{green}}"
         },
+        "noPermission": {
+            "title": ":x: Permission denied",
+            "description": "You do not have permission to run this command.",
+            "color": "{{red}}"
+        },
+        "helppage": {
+            "title": ":information_source: Command index",
+            "color": "{{primary}}"
+        },
         "suggest": {
             "error": {
                 "inherits": "embeds.error",
@@ -26,7 +40,23 @@
             },
             "success": {
                 "inherits": "embeds.success",
-                "description": "If you want to edit your suggestion, please do !!suggestion."
+                "description": "If you want to edit your suggestion, please do `!!suggestion.`"
+            }
+        },
+        "suggestion": {
+            "default": {
+                "inherits": "embeds.helppage",
+                "description": "Suggestion management:\n{{! Need triple brackets for non escaping}}{{{index}}}"
+            }
+        },
+        "user": {
+            "default": {
+                "inherits": "embeds.helppage",
+                "description": "User management:\n`setAdmin`: Makes a user an admin."
+            },
+            "makeAdminSuccess": {
+                "inherits": "embeds.success",
+                "description": "Successfully made {{user}} an admin."
             }
         }
     },

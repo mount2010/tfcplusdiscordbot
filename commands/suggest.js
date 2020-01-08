@@ -12,22 +12,6 @@ async function newSuggestion (timestamp, text, user) {
     );
 }
 
-function removeSuggestion (id, user) {
-
-}
-
-function approveSuggestion (id, user) {
-
-}
-
-function denySuggestion (id, user) {
-
-}
-
-function editSuggestion (id, text, user) {
-
-}
-
 /**
  * Sets variables that are compatible with the database manipulating functions above
  */

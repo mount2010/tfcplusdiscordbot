@@ -49,6 +49,11 @@ function getEmbed (configKey, view, concat=true) {
     return multiTemplate(embed, view);
 }
 
+function requireArgs (args, number) {
+    console.log(args.length);
+    return args.length <= number;
+}
+
 function runSubCommands (subCommands, text) {
     if (!text || text.length <= 0) {
         subCommands.default();
@@ -61,5 +66,6 @@ function runSubCommands (subCommands, text) {
 export default {
     multiTemplate,
     getEmbed,
-    runSubCommands
+    runSubCommands,
+    requireArgs
 };
